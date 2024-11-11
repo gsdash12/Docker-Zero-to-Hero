@@ -6,8 +6,8 @@ COPY requirements.txt /app
 COPY devops /app
 
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip pipx && \
-    RUN cat requirements.txt | xargs -n 1 pipx install && \
+    apt-get install -y python3 python3-pip && \
+    RUN pip install -r requirements.txt  && \
     cd devops
 
 ENTRYPOINT ["python3"]
